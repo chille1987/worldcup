@@ -86,4 +86,19 @@ Stripped-down developer page: every API call this site makes, with the response 
 
 ## Review
 
-_(filled in after implementation)_
+**Built (2026-05-25):**
+- Scaffold: Next.js 15.5 + React 19 + Tailwind 3, builds clean (6 static pages).
+- `lib/juicer.ts` — typed wrapper around `/posts/lookup`, fan-out helper, auto mock fallback when `JUICER_API_KEY` is unset.
+- `lib/mock-data.ts` — deterministic mock fixtures (Spain / live / bar templates).
+- `lib/countries.ts` — 8 nations (Spain, USA, Mexico, Brazil, France, England, Germany, Argentina), each with hashtags + players + theme.
+- `/` — index with three demo cards + live/mock status badge.
+- `/spain` — country picker swaps 8 teams via `?team=` query param, themed header, fan wall, sidebar with the exact API call.
+- `/live` — match-day mode, dark theme, scoreboard chrome (mock Spain 1-0 France), AutoRefresh client component (15s), live/recap toggle.
+- `/bar` — "The Pitch Bar" fictional brand, 16:9 TV chrome with 3×N wall grid, copy-block for embed snippet + cold-email template.
+
+**Next moves if we keep going:**
+1. Wire real `JUICER_API_KEY` and validate that `/posts/lookup` response shape matches our normalizer.
+2. README with the pitch context for the Juicer team viewer.
+3. Polish: real bar photos, mobile responsiveness pass, a small `/spec` page enumerating every API call.
+4. Decision: extract this as the OSS starter repo mentioned in `world-cup-2026-juicer-ideas.md` § Developer.
+
